@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap')
+
+body
+  font-family: 'Fira Mono', monospace
+  font-weight: 400
+  line-height: 1.25em
+  color: #FFB0C0
+  background-color: #120e14
+  user-select: none
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  margin: 0
+  padding: 0
+
+  > div
+    width: 80%
+
+    > header
+      margin-top: 40px
+      margin-bottom: 40px
+      font-weight: 500
+      font-size: 36px
+
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+      > div:nth-child(2)
+        display: none
+        margin-left: .7em
+
+    > div:nth-child(2)
+      margin-bottom: 40px
+
+      > blockquote
+        border-left: 1px solid #FFB0C0
+        padding: 0 0 0 20px
+        margin: 0 0 0 -20px
+
+      > p, > blockquote > p
+        margin: 1rem 0
+
+      > h1, h2, h3, h4, h5
+        text-transform: uppercase
+        padding: 0
+        margin: 1rem 1rem 0 -20px
+
+      > ul
+        margin: 1rem 0
+        padding: 0
+
+        > li
+          padding: 5px 5px 0 10px
+          margin: 0 0 0 -10px
+
+      > code, > pre, > a
+        margin: 1rem 0
+
+      > code, > p > code, > pre
+        user-select: text
+        font-size: 1rem
+
+      > img
+        margin: 1rem 0
+        width: 100%
+        height: auto
+
+      > a, > p > a, > blockquote > p > a, > ul > li > a
+        color: #FFB0C0
+
+
+@media screen and (min-width: 768px)
+  body
+    > div
+      width: 650px
+
+      > header
+        margin-top: 220px
+
+        > div:nth-child(2)
+          display: block
+
+      > div:nth-child(2)
+        margin-bottom: 220px

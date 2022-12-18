@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+body {
+  font-family: "Fira Mono", monospace;
+  font-weight: 400;
+  line-height: 1.25em;
+  color: #FFB0C0;
+  background-color: #120e14;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+body > div {
+  width: 80%;
+}
+body > div > header {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+body > div > header > div:nth-child(2) {
+  display: none;
+  margin-left: 0.7em;
+}
+body > div > div:nth-child(2) {
+  margin-bottom: 40px;
+}
+body > div > div:nth-child(2) > blockquote {
+  border-left: 1px solid #FFB0C0;
+  padding: 0 0 0 20px;
+  margin: 0 0 0 -20px;
+}
+body > div > div:nth-child(2) > p, body > div > div:nth-child(2) > blockquote > p {
+  margin: 1rem 0;
+}
+body > div > div:nth-child(2) > h1, body > div > div:nth-child(2) h2, body > div > div:nth-child(2) h3, body > div > div:nth-child(2) h4, body > div > div:nth-child(2) h5 {
+  text-transform: uppercase;
+  padding: 0;
+  margin: 1rem 1rem 0 -20px;
+}
+body > div > div:nth-child(2) > ul {
+  margin: 1rem 0;
+  padding: 0;
+}
+body > div > div:nth-child(2) > ul > li {
+  padding: 5px 5px 0 10px;
+  margin: 0 0 0 -10px;
+}
+body > div > div:nth-child(2) > code, body > div > div:nth-child(2) > pre, body > div > div:nth-child(2) > a {
+  margin: 1rem 0;
+}
+body > div > div:nth-child(2) > code, body > div > div:nth-child(2) > p > code, body > div > div:nth-child(2) > pre {
+  user-select: text;
+  font-size: 1rem;
+}
+body > div > div:nth-child(2) > img {
+  margin: 1rem 0;
+  width: 100%;
+  height: auto;
+}
+body > div > div:nth-child(2) > a, body > div > div:nth-child(2) > p > a, body > div > div:nth-child(2) > blockquote > p > a, body > div > div:nth-child(2) > ul > li > a {
+  color: #FFB0C0;
+}
+
+@media screen and (min-width: 768px) {
+  body > div {
+    width: 650px;
+  }
+  body > div > header {
+    margin-top: 220px;
+  }
+  body > div > header > div:nth-child(2) {
+    display: block;
+  }
+  body > div > div:nth-child(2) {
+    margin-bottom: 220px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <title>opsp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'base/main.css' %}">
+</head>
+<body>
+    <div>
+        <header>
+            <div><span>opsp</span></div>
+            <div><span>- простір свободи</span></div>
+        </header>
+        <div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
