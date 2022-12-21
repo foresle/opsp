@@ -1,0 +1,19 @@
+:root {
+    --bg_color: #120e14;
+    --fg_color: #FFB0C0;
+}
+
+body.old_theme {
+    --bg_color: #120e14;
+    --fg_color: #FFB0C0;
+}
+
+body.dark_theme {
+    --bg_color: #242433;
+    --fg_color: #ffffff;
+}
+
+body.light_theme {
+    --bg_color: #ffffff;
+    --fg_color: #242433;
+}

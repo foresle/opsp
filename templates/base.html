@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'base/main.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'base/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'base/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'base/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'base/favicon/site.webmanifest' %}">
 </head>
 <body>
     <div>
@@ -21,5 +26,12 @@
             {% endblock %}
         </div>
     </div>
+    <div>
+        <div class="color_scheme_picker old_style" onclick="theme_changer(1)"></div>
+        <div class="color_scheme_picker dark_style" onclick="theme_changer(2)"></div>
+        <div class="color_scheme_picker light_style" onclick="theme_changer(3)"></div>
+    </div>
+
+    <script src="{% static 'base/theme_changer.js' %}"></script>
 </body>
 </html>

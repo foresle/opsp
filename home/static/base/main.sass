@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap')
+@import "themes.css"
+
+// Old theme
+//$bg_color: #120e14
+//$fg_color: #FFB0C0
+
+// Maybe dark theme
+//$bg_color: #242433
+//$fg_color: #ffffff
+
+// Maybe white theme
+//$bg_color: #ffffff
+//$fg_color: #242433
 
 body
   font-family: 'Fira Mono', monospace
   font-weight: 400
   line-height: 1.25em
-  color: #FFB0C0
-  background-color: #120e14
+  color: var(--fg_color)
+  background-color: var(--bg_color)
   user-select: none
 
   display: flex
@@ -19,6 +32,7 @@ body
   > div
     width: 80%
 
+  > div:nth-child(1)
     > header
       margin-top: 40px
       margin-bottom: 40px
@@ -38,7 +52,7 @@ body
       margin-bottom: 40px
 
       > blockquote
-        border-left: 1px solid #FFB0C0
+        border-left: 1px solid var(--fg_color)
         padding: 0 0 0 20px
         margin: 0 0 0 -20px
 
@@ -71,14 +85,35 @@ body
         height: auto
 
       > a, > p > a, > blockquote > p > a, > ul > li > a
-        color: #FFB0C0
+        color: var(--fg_color)
 
+  > div:nth-child(2)
+    display: flex
+    flex-direction: row
+
+    > div.color_scheme_picker
+      width: 30px
+      height: 30px
+      background: white
+      margin-right: 10px
+      border: 2px solid var(--fg_color)
+      border-bottom: 0
+
+    > div.old_style
+      background: #120e14
+
+    > div.dark_style
+      background: #242433
+
+    > div.light_style
+      background: #ffffff
 
 @media screen and (min-width: 768px)
   body
     > div
       width: 650px
 
+    > div:nth-child(1)
       > header
         margin-top: 220px
 

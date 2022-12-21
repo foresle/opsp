@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+@import "themes.css";
 body {
   font-family: "Fira Mono", monospace;
   font-weight: 400;
   line-height: 1.25em;
-  color: #FFB0C0;
-  background-color: #120e14;
+  color: var(--fg_color);
+  background-color: var(--bg_color);
   user-select: none;
   display: flex;
   flex-direction: column;
@@ -16,7 +17,7 @@ body {
 body > div {
   width: 80%;
 }
-body > div > header {
+body > div:nth-child(1) > header {
   margin-top: 40px;
   margin-bottom: 40px;
   font-weight: 500;
@@ -26,61 +27,82 @@ body > div > header {
   justify-content: flex-start;
   align-items: center;
 }
-body > div > header > div:nth-child(2) {
+body > div:nth-child(1) > header > div:nth-child(2) {
   display: none;
   margin-left: 0.7em;
 }
-body > div > div:nth-child(2) {
+body > div:nth-child(1) > div:nth-child(2) {
   margin-bottom: 40px;
 }
-body > div > div:nth-child(2) > blockquote {
-  border-left: 1px solid #FFB0C0;
+body > div:nth-child(1) > div:nth-child(2) > blockquote {
+  border-left: 1px solid var(--fg_color);
   padding: 0 0 0 20px;
   margin: 0 0 0 -20px;
 }
-body > div > div:nth-child(2) > p, body > div > div:nth-child(2) > blockquote > p {
+body > div:nth-child(1) > div:nth-child(2) > p, body > div:nth-child(1) > div:nth-child(2) > blockquote > p {
   margin: 1rem 0;
 }
-body > div > div:nth-child(2) > h1, body > div > div:nth-child(2) h2, body > div > div:nth-child(2) h3, body > div > div:nth-child(2) h4, body > div > div:nth-child(2) h5 {
+body > div:nth-child(1) > div:nth-child(2) > h1, body > div:nth-child(1) > div:nth-child(2) h2, body > div:nth-child(1) > div:nth-child(2) h3, body > div:nth-child(1) > div:nth-child(2) h4, body > div:nth-child(1) > div:nth-child(2) h5 {
   text-transform: uppercase;
   padding: 0;
   margin: 1rem 1rem 0 -20px;
 }
-body > div > div:nth-child(2) > ul {
+body > div:nth-child(1) > div:nth-child(2) > ul {
   margin: 1rem 0;
   padding: 0;
 }
-body > div > div:nth-child(2) > ul > li {
+body > div:nth-child(1) > div:nth-child(2) > ul > li {
   padding: 5px 5px 0 10px;
   margin: 0 0 0 -10px;
 }
-body > div > div:nth-child(2) > code, body > div > div:nth-child(2) > pre, body > div > div:nth-child(2) > a {
+body > div:nth-child(1) > div:nth-child(2) > code, body > div:nth-child(1) > div:nth-child(2) > pre, body > div:nth-child(1) > div:nth-child(2) > a {
   margin: 1rem 0;
 }
-body > div > div:nth-child(2) > code, body > div > div:nth-child(2) > p > code, body > div > div:nth-child(2) > pre {
+body > div:nth-child(1) > div:nth-child(2) > code, body > div:nth-child(1) > div:nth-child(2) > p > code, body > div:nth-child(1) > div:nth-child(2) > pre {
   user-select: text;
   font-size: 1rem;
 }
-body > div > div:nth-child(2) > img {
+body > div:nth-child(1) > div:nth-child(2) > img {
   margin: 1rem 0;
   width: 100%;
   height: auto;
 }
-body > div > div:nth-child(2) > a, body > div > div:nth-child(2) > p > a, body > div > div:nth-child(2) > blockquote > p > a, body > div > div:nth-child(2) > ul > li > a {
-  color: #FFB0C0;
+body > div:nth-child(1) > div:nth-child(2) > a, body > div:nth-child(1) > div:nth-child(2) > p > a, body > div:nth-child(1) > div:nth-child(2) > blockquote > p > a, body > div:nth-child(1) > div:nth-child(2) > ul > li > a {
+  color: var(--fg_color);
+}
+body > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+}
+body > div:nth-child(2) > div.color_scheme_picker {
+  width: 30px;
+  height: 30px;
+  background: white;
+  margin-right: 10px;
+  border: 2px solid var(--fg_color);
+  border-bottom: 0;
+}
+body > div:nth-child(2) > div.old_style {
+  background: #120e14;
+}
+body > div:nth-child(2) > div.dark_style {
+  background: #242433;
+}
+body > div:nth-child(2) > div.light_style {
+  background: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
   body > div {
     width: 650px;
   }
-  body > div > header {
+  body > div:nth-child(1) > header {
     margin-top: 220px;
   }
-  body > div > header > div:nth-child(2) {
+  body > div:nth-child(1) > header > div:nth-child(2) {
     display: block;
   }
-  body > div > div:nth-child(2) {
+  body > div:nth-child(1) > div:nth-child(2) {
     margin-bottom: 220px;
   }
 }
