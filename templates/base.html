@@ -21,5 +21,12 @@
             {% endblock %}
         </div>
     </div>
+    <div>
+        <div class="color_scheme_picker old_style" onclick="theme_changer(1)"></div>
+        <div class="color_scheme_picker dark_style" onclick="theme_changer(2)"></div>
+        <div class="color_scheme_picker light_style" onclick="theme_changer(3)"></div>
+    </div>
+
+    <script src="{% static 'base/theme_changer.js' %}"></script>
 </body>
 </html>
