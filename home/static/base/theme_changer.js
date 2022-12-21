@@ -18,7 +18,7 @@ const theme_changer = (number) => {
 const set_color_scheme = () => {
     const theme = localStorage.getItem('theme_number')
 
-    if (theme !== undefined) {
+    if (theme !== null) {
         theme_changer(parseInt(theme))
     } else {
         if (window.matchMedia) {
