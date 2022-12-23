@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <p>Інтерактивна карта моєї матриці, матриці мого сервера. Згенерована за допомогою мого модуля -> <a href="https://gitlab.com/foresle/synapse_graph">synapse_graph</a>.</p>
+    <p>Оновлення карти відбувається кожні 2 дні.</p>
+    <ul>
+        <li>Імена користувачів та їх особісті повідомлення приховані з метою безпеки.</li>
+        <li>Користувачі з інших серверів приховані.</li>
+        <li>Діаметр нод кімнат залежить від кількості учасників в них.</li>
+        <li>Список кімнат складається лише з тих кімнат, які відвідують користувачі мого сервера.</li>
+    </ul>
+    <div id="Map">
+
+    </div>
+    <p>Якщо маєте якісь пропозиції щодо покращення функціонала, або хочете прибрати себе з мапи зв'яжіться зі мною: <code>@foresle:matrix.opulus.space</code>.</p>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script type="text/javascript" src="{% static 'map/map.js' %}"></script>
+    <script type="text/javascript">setMapFromJson(String.raw`{{ map|safe }}`);</script>
+{% endblock %}

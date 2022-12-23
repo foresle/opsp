@@ -67,7 +67,7 @@ body > div:nth-child(1) > div:nth-child(2) > img {
   width: 100%;
   height: auto;
 }
-body > div:nth-child(1) > div:nth-child(2) > a, body > div:nth-child(1) > div:nth-child(2) > p > a, body > div:nth-child(1) > div:nth-child(2) > blockquote > p > a, body > div:nth-child(1) > div:nth-child(2) > ul > li > a {
+body > div:nth-child(1) > div:nth-child(2) > a, body > div:nth-child(1) > div:nth-child(2) > p > a, body > div:nth-child(1) > div:nth-child(2) > blockquote > p > a, body > div:nth-child(1) > div:nth-child(2) > ul > li > a, body > div:nth-child(1) > div:nth-child(2) > h1 > a, body > div:nth-child(1) > div:nth-child(2) > h2 > a, body > div:nth-child(1) > div:nth-child(2) > h3 > a, body > div:nth-child(1) > div:nth-child(2) > h4 > a, body > div:nth-child(1) > div:nth-child(2) > h5 > a {
   color: var(--fg_color);
 }
 body > div:nth-child(2) {
