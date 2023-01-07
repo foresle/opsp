@@ -5,6 +5,8 @@ from home.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('markdownx/', include('markdownx.urls')),
     path('map/', include('map.urls')),
+    path('bots/', include('bots.urls')),
     path('', HomeView.as_view(), name='home'),
 ]

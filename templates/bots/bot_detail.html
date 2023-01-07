@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h4>{{ bot.name }}</h4>
+    <ul>
+        <li>
+            <code>{{ bot.address }}</code>
+        </li>
+        <li>
+            {% if bot.support_encryption %}
+                Підтримка E2EE: ✅
+            {% else %}
+                Підтримка E2EE: ⛔️
+            {% endif %}
+        </li>
+        <li><a href="https://matrix.to/#/{{ bot.address }}">matrix.to</a></li>
+    </ul>
+    <p>{{ bot.formatted_description|safe }}</p>
+{% endblock %}

@@ -52,10 +52,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    
+    # 3pd party
+    'markdownx',
 
     # Local apps
     'home.apps.HomeConfig',
     'map.apps.MapConfig',
+    'bots.apps.BotsConfig',
 ]
 
 MIDDLEWARE = [

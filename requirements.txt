@@ -6,6 +6,7 @@ certifi==2022.12.7
 charset-normalizer==2.1.1
 decorator==5.1.1
 Django==4.1.4
+django-markdownx==4.0.0b1
 environs==9.5.0
 executing==1.2.0
 gunicorn==20.1.0
@@ -14,6 +15,7 @@ ipython==8.7.0
 jedi==0.18.2
 Jinja2==3.1.2
 jsonpickle==3.0.1
+Markdown==3.4.1
 MarkupSafe==2.1.1
 marshmallow==3.19.0
 matplotlib-inline==0.1.6
@@ -22,6 +24,7 @@ packaging==22.0
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
+Pillow==9.4.0
 prompt-toolkit==3.0.36
 psycopg2-binary==2.9.5
 ptyprocess==0.7.0
