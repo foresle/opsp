@@ -102,6 +102,8 @@ body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(2) {
 body > div:nth-child(2) {
   display: flex;
   flex-direction: row;
+  position: fixed;
+  bottom: 0;
 }
 body > div:nth-child(2) > div.color_scheme_picker {
   width: 30px;
