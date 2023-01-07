@@ -58,7 +58,7 @@ body > div:nth-child(1) > div:nth-child(2) > ul > li {
 body > div:nth-child(1) > div:nth-child(2) > code, body > div:nth-child(1) > div:nth-child(2) > pre, body > div:nth-child(1) > div:nth-child(2) > a {
   margin: 1rem 0;
 }
-body > div:nth-child(1) > div:nth-child(2) > code, body > div:nth-child(1) > div:nth-child(2) > p > code, body > div:nth-child(1) > div:nth-child(2) > pre {
+body > div:nth-child(1) > div:nth-child(2) > code, body > div:nth-child(1) > div:nth-child(2) > p > code, body > div:nth-child(1) > div:nth-child(2) > pre, body > div:nth-child(1) > div:nth-child(2) ul > li > code {
   user-select: text;
   font-size: 1rem;
 }
@@ -67,12 +67,43 @@ body > div:nth-child(1) > div:nth-child(2) > img {
   width: 100%;
   height: auto;
 }
-body > div:nth-child(1) > div:nth-child(2) > a, body > div:nth-child(1) > div:nth-child(2) > p > a, body > div:nth-child(1) > div:nth-child(2) > blockquote > p > a, body > div:nth-child(1) > div:nth-child(2) > ul > li > a, body > div:nth-child(1) > div:nth-child(2) > h1 > a, body > div:nth-child(1) > div:nth-child(2) > h2 > a, body > div:nth-child(1) > div:nth-child(2) > h3 > a, body > div:nth-child(1) > div:nth-child(2) > h4 > a, body > div:nth-child(1) > div:nth-child(2) > h5 > a {
+body > div:nth-child(1) > div:nth-child(2) > a, body > div:nth-child(1) > div:nth-child(2) > p > a, body > div:nth-child(1) > div:nth-child(2) > blockquote > p > a, body > div:nth-child(1) > div:nth-child(2) > ul > li > a, body > div:nth-child(1) > div:nth-child(2) > h1 > a, body > div:nth-child(1) > div:nth-child(2) > h2 > a, body > div:nth-child(1) > div:nth-child(2) > h3 > a, body > div:nth-child(1) > div:nth-child(2) > h4 > a, body > div:nth-child(1) > div:nth-child(2) > h5 > a, body > div:nth-child(1) > div:nth-child(2) > .pagination a {
   color: var(--fg_color);
+}
+body > div:nth-child(1) > div:nth-child(2) > .pagination {
+  margin: 60px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(1), body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(3) {
+  width: 40%;
+}
+body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+body > div:nth-child(1) > div:nth-child(2) > .pagination > div:nth-child(2) {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 body > div:nth-child(2) {
   display: flex;
   flex-direction: row;
+  position: fixed;
+  bottom: 0;
 }
 body > div:nth-child(2) > div.color_scheme_picker {
   width: 30px;

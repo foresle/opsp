@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <p>Список всіх ботів які використовується на сервері. Якщо ви хочете також додати бота, сповістіть адміна.</p>
+    <p>Умови:</p>
+    <ul>
+        <li>бот має відкритий код</li>
+        <li>бот не повинен шкодити користувачам серверу</li>
+        <li>бот не повинен порушувати правила серверу</li>
+    </ul>
+    <p>Боти:</p>
+
+    {% for bot in bot_list %}
+        <h4><a href="{% url 'bot_detail' bot.pk %}">{{ bot.name }}</a></h4>
+        <p>{{ bot.formatted_description|safe }}</p>
+    {% empty %}
+        <p>В базі пусто 🥲</p>
+    {% endfor %}
+
+    <div class="pagination">
+        <div>
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}"><<</a>
+            {% endif %} 
+        </div>
+        <div>
+            {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}
+        </div>
+        <div>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">>></a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
