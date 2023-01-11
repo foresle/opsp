@@ -1,6 +1,8 @@
 .idea
-./venv
+venv
 db.sqlite3
 docker-compose-prod.yaml
-./static
+static
 .env
+celerybeat-schedule
+staticfiles
