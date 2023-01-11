@@ -1,3 +1,8 @@
+.idea
 venv
-.gitignore
-.git
+db.sqlite3
+docker-compose-prod.yaml
+static
+.env
+celerybeat-schedule
+staticfiles

@@ -4,7 +4,7 @@ services:
     build: .
     ports:
       - '8000:8000'
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     environment:
@@ -19,6 +19,7 @@ services:
       - 'MATRIX_TOKEN=None'
     depends_on:
       - db
+      - redis
 
   db:
     image: postgres:13
@@ -26,6 +27,45 @@ services:
       - postgres_data:/var/lib/postgresql/data
     environment:
       - 'POSTGRES_HOST_AUTH_METHOD=trust'
+
+  redis:
+    image: redis:7.0
+
+  celery:
+    build: .
+    command: celery -A opsp worker -l debug
+    environment:
+      - 'DJANGO_SECRET_KEY=django-insecure-#8loa#v14ej!d13bhr(snh(9sv_hiw)fs1wwggp2e!vd05!4u='
+      - 'DJANGO_DEBUG=True'
+      - 'DJANGO_SECURE_SSL_REDIRECT=False'
+      - 'DJANGO_SECURE_HSTS_SECONDS=0'
+      - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
+      - 'DJANGO_SECURE_HSTS_PRELOAD=False'
+      - 'DJANGO_SESSION_COOKIE_SECURE=False'
+      - 'DJANGO_CSRF_COOKIE_SECURE=False'
+      - 'MATRIX_TOKEN=None'
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+
+  celery-beat:
+    build: .
+    command: celery -A opsp beat -l debug
+    environment:
+      - 'DJANGO_SECRET_KEY=django-insecure-#8loa#v14ej!d13bhr(snh(9sv_hiw)fs1wwggp2e!vd05!4u='
+      - 'DJANGO_DEBUG=True'
+      - 'DJANGO_SECURE_SSL_REDIRECT=False'
+      - 'DJANGO_SECURE_HSTS_SECONDS=0'
+      - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
+      - 'DJANGO_SECURE_HSTS_PRELOAD=False'
+      - 'DJANGO_SESSION_COOKIE_SECURE=False'
+      - 'DJANGO_CSRF_COOKIE_SECURE=False'
+      - 'MATRIX_TOKEN=None'
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
 
 volumes:
   postgres_data:
