@@ -162,6 +162,6 @@ CELERY_RESULT_BACKEND = 'redis://redis:6379'
 CELERY_BEAT_SCHEDULE = {
     'update_map_every_2_days': {
         'task': 'map.tasks.update_map',
-        'schedule': timedelta(minutes=3)
+        'schedule': timedelta(days=2)
     }
 }
