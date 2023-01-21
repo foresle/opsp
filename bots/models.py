@@ -5,10 +5,10 @@ from markdownx.utils import markdownify
 
 
 class Bot(models.Model):
-    name = models.CharField(max_length=120)
-    address = models.CharField(max_length=120)
-    support_encryption = models.BooleanField()
-    description = MarkdownxField()
+    name = models.CharField(max_length=120, verbose_name='Назва')
+    address = models.CharField(max_length=120, verbose_name='Адреса')
+    support_encryption = models.BooleanField(verbose_name='Підтримка шифрованих кімнат')
+    description = MarkdownxField(verbose_name='Опис')
 
     @property
     def formatted_description(self):
@@ -19,3 +19,7 @@ class Bot(models.Model):
 
     def get_absolute_url(self):
         return reverse('bot_detail', args=(self.pk,))
+
+    class Meta:
+        verbose_name = 'Бот'
+        verbose_name_plural = 'Боти'

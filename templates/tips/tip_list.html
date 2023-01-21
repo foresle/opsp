@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <p>Список всіх підказок щодо matrix, або mumble.</p>
+
+    {% for tip in tip_list %}
+        <blockquote>
+            <p>{{ tip.text }}</p>
+        </blockquote>
+        <p>{{ tip.category }} - #{{ tip.pk }}</p>
+    {% empty %}
+        <p>В базі пусто 🥲</p>
+    {% endfor %}
+
+    <div class="pagination">
+        <div>
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}"><<</a>
+            {% endif %} 
+        </div>
+        <div>
+            {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}
+        </div>
+        <div>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">>></a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

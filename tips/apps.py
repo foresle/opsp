@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class BotsConfig(AppConfig):
+class TipsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'bots'
-    verbose_name = 'Боти'
+    name = 'tips'
+    verbose_name = 'Підказки'

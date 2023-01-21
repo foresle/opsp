@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <blockquote>
+        <p>{{ tip.text }}</p>
+    </blockquote>
+    <p>{{ tip.category }}</p>
+{% endblock %}
