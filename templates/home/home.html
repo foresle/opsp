@@ -33,9 +33,11 @@
         <li><a href="{% url 'bot_list' %}">🤖 матриці</a></li>
     </ul>
     <p></p>
-    <h4>Випадкова <a href="{% url 'tip_detail' tip.pk %}">підказка #{{ tip.pk }}</a></h4>
-    <blockquote>
-        <p>{{ tip.text }}</p>
-    </blockquote>
-    <p><a href="{% url 'tip_list' %}">Всі підказки</a></p>
+    {% if tip %}
+        <h4>Випадкова <a href="{% url 'tip_detail' tip.pk %}">підказка #{{ tip.pk }}</a></h4>
+        <blockquote>
+            <p>{{ tip.text }}</p>
+        </blockquote>
+        <p><a href="{% url 'tip_list' %}">Всі підказки</a></p>
+    {% endif %}
 {% endblock %}
