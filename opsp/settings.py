@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'map.apps.MapConfig',
     'bots.apps.BotsConfig',
+    'tips.apps.TipsConfig',
 ]
 
 MIDDLEWARE = [

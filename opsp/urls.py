@@ -8,5 +8,6 @@ urlpatterns = [
     path('markdownx/', include('markdownx.urls')),
     path('map/', include('map.urls')),
     path('bots/', include('bots.urls')),
+    path('tips/', include('tips.urls')),
     path('', HomeView.as_view(), name='home'),
 ]
