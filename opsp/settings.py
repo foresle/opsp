@@ -97,17 +97,24 @@ WSGI_APPLICATION = 'opsp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'postgres',
+    #     'HOST': 'db',
+    #     'PORT': 5432
+    # }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': env('REDIS_CACHE_URL', 'redis://redis:6379'),
     }
 }
 
@@ -155,6 +162,8 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MATRIX_TOKEN = env('MATRIX_TOKEN')
+MONOBANK_PERSONAL_API_TOKEN = env('MONOBANK_PERSONAL_API_TOKEN')
+MONOBANK_JAR_SEND_ID = env('MONOBANK_JAR_SEND_ID')
 
 # CELERY
 CELERY_BROKER_URL = 'redis://redis:6379'

@@ -18,11 +18,20 @@
     <p>Адреса сервера: <a href="https://matrix.opulus.space">https://matrix.opulus.space</a></p>
     <p>Для новачків також корисно прочитати ось цей матеріал -> <a href="https://forblog.live/posts/articles/d1dd662735874a70af8d571a4c064cec/">Чому Telegram зло, та Matrix!=Element</a></p>
     <p>Якщо хочете поспілкуватися з різними людьми голосом, відвідуйте мій сервер <a href="mumble://voice.opulus.space/%D0%9A%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BB%D1%8C%D0%BA%D0%B0%20%D0%B7%20%D0%B1%D0%BE%D1%80%D1%89%D0%B8%D0%BA%D0%BE%D0%BC?title=opsp%20voice%20chat&version=1.2.0">Mumble</a> час від часу, правила ті ж, що й для Матриці.</p>
-    <p>Посилання для збору на оплати сервера:</p>
-    <ul>
-        <li><a href="https://send.monobank.ua/jar/4sYihgZP9u">Банка Моно</a></li>
-    </ul>
-    <p>Інші контакти адміна:</p>
+    <h4>Оплата сервера:</h4>
+    <div id="donate_jar_box">
+        <div>
+            <div>Зібрано {{ donate_jar_box.jar.accumulated }}</div>
+            <div>з</div>
+            <div>{{ donate_jar_box.jar.goal }} UAH</div>
+        </div>
+        <div>
+            Період: {{ donate_jar_box.first_period_day.date }} - {{ donate_jar_box.last_period_day.date }}
+        </div>
+        <div>Приблизно {{ donate_jar_box.per_user_pay|floatformat }} UAH на користувача.</div>
+        <div><a href="https://send.monobank.ua/jar/4sYihgZP9u">💰💰💰 Долучитися 💰💰💰️</a></div>
+    </div>
+    <h4>Інші контакти адміна:</h4>
     <ul>
         <li><a href="https://mstdn.social/web/@foresle">Mastodon</a></li>
         <li><a href="https://forblog.live/">Блог</a></li>
