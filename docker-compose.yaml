@@ -3,20 +3,12 @@ services:
   web:
     build: .
     ports:
-      - '8000:8000'
+      - '8002:8000'
     command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
-    environment:
-      - 'DJANGO_SECRET_KEY=django-insecure-#8loa#v14ej!d13bhr(snh(9sv_hiw)fs1wwggp2e!vd05!4u='
-      - 'DJANGO_DEBUG=True'
-      - 'DJANGO_SECURE_SSL_REDIRECT=False'
-      - 'DJANGO_SECURE_HSTS_SECONDS=0'
-      - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
-      - 'DJANGO_SECURE_HSTS_PRELOAD=False'
-      - 'DJANGO_SESSION_COOKIE_SECURE=False'
-      - 'DJANGO_CSRF_COOKIE_SECURE=False'
-      - 'MATRIX_TOKEN=None'
+    env_file:
+      - .env
     depends_on:
       - db
       - redis
@@ -34,16 +26,8 @@ services:
   celery:
     build: .
     command: celery -A opsp worker -l debug
-    environment:
-      - 'DJANGO_SECRET_KEY=django-insecure-#8loa#v14ej!d13bhr(snh(9sv_hiw)fs1wwggp2e!vd05!4u='
-      - 'DJANGO_DEBUG=True'
-      - 'DJANGO_SECURE_SSL_REDIRECT=False'
-      - 'DJANGO_SECURE_HSTS_SECONDS=0'
-      - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
-      - 'DJANGO_SECURE_HSTS_PRELOAD=False'
-      - 'DJANGO_SESSION_COOKIE_SECURE=False'
-      - 'DJANGO_CSRF_COOKIE_SECURE=False'
-      - 'MATRIX_TOKEN=None'
+    env_file:
+      - .env
     volumes:
       - .:/code
     depends_on:
@@ -52,16 +36,8 @@ services:
   celery-beat:
     build: .
     command: celery -A opsp beat -l debug
-    environment:
-      - 'DJANGO_SECRET_KEY=django-insecure-#8loa#v14ej!d13bhr(snh(9sv_hiw)fs1wwggp2e!vd05!4u='
-      - 'DJANGO_DEBUG=True'
-      - 'DJANGO_SECURE_SSL_REDIRECT=False'
-      - 'DJANGO_SECURE_HSTS_SECONDS=0'
-      - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
-      - 'DJANGO_SECURE_HSTS_PRELOAD=False'
-      - 'DJANGO_SESSION_COOKIE_SECURE=False'
-      - 'DJANGO_CSRF_COOKIE_SECURE=False'
-      - 'MATRIX_TOKEN=None'
+    env_file:
+      - .env
     volumes:
       - .:/code
     depends_on:
