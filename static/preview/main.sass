@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap')
+
+body
+  font-family: 'Fira Sans', sans-serif
+  font-weight: 400
+  color: whitesmoke
+  background-color: black
+  user-select: none
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  margin: 0
+  padding: 0
+
+  > div
+    width: 100vw
+    height: 100vh
+
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+
+    > div
+      margin: 1rem 0.2rem
+
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+
+      text-align: center
+
+    > div:first-child
+      flex-grow: 1
+      font-weight: 700
+      font-size: 1.8rem
+      animation: mainTextAnimation 9s infinite
+      width: 100%
+
+@keyframes mainTextAnimation
+  0%
+    text-shadow: 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke,  0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke
+  50%
+    text-shadow: 0 0 200px whitesmoke, 0 0 400px whitesmoke, 0 0 600px whitesmoke
+  100%
+    text-shadow: 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke,  0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke
