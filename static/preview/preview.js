@@ -7,19 +7,27 @@ const changeMainText = (text) => {
     mainText.innerText = text
 }
 
-text = [
-    "БЕЗПЕЧНИЙ ЗВ'ЯЗОК ТУТ",
-    "ТИ ОБИРАЄШ СВОБОДУ?",
-    "ДОЛУЧАЙСЯ ДО НАШОЇ СПІЛЬНОТИ",
-    "РАБІВ У МАТРИЦЮ НЕ ПУСКАЮТЬ"
-]
 
-text.sort(() => Math.random() - 0.5);
+const setTextList = (external_text) => {
+    let text = [
+        "БЕЗПЕЧНИЙ ЗВ'ЯЗОК ТУТ",
+        "ТИ ОБИРАЄШ СВОБОДУ?",
+        "ДОЛУЧАЙСЯ ДО НАШОЇ СПІЛЬНОТИ",
+        "РАБІВ У МАТРИЦЮ НЕ ПУСКАЮТЬ"
+    ]
 
-text.map(
-    (text, index) => {
-        setTimeout(() => {
-            changeMainText(text)
-        }, (index + 1) * 3000)
+    if (external_text != null) {
+        phrases = JSON.parse(external_text).phrases
+        if (phrases.length > 0) {
+            text = phrases
+        }
     }
-)
+
+    text.map(
+        (text, index) => {
+            setTimeout(() => {
+                changeMainText(text)
+            }, (index + 1) * 5000)
+        }
+    )
+}

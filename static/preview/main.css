@@ -32,19 +32,19 @@ body > div > div:first-child {
   flex-grow: 1;
   font-weight: 700;
   font-size: 1.8rem;
-  animation: mainTextAnimation 9s infinite;
+  animation: mainTextAnimation 5s infinite;
   width: 100%;
 }
 
 @keyframes mainTextAnimation {
   0% {
-    text-shadow: 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke, 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke;
+    color: rgba(255, 255, 255, 0);
   }
   50% {
-    text-shadow: 0 0 200px whitesmoke, 0 0 400px whitesmoke, 0 0 600px whitesmoke;
+    color: rgb(255, 255, 255);
   }
   100% {
-    text-shadow: 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke, 0 0 400px whitesmoke, 0 0 800px whitesmoke, 0 0 1200px whitesmoke;
+    color: rgba(255, 255, 255, 0);
   }
 }
 

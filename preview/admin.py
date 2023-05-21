@@ -1,3 +1,8 @@
-from django.contrib import admin
+from django.contrib.admin import register, ModelAdmin
 
-# Register your models here.
+from .models import Phrases
+
+
+@register(Phrases)
+class PhrasesAdmin(ModelAdmin):
+    list_display = ['phrase', 'priority']
