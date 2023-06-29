@@ -1,0 +1,75 @@
+version: "3.9"
+
+services:
+    caddy:
+        image: caddy:2.6-alpine
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+            - "443:443/udp"
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile
+            - .:/code
+            - ./caddy_data:/data
+            - ./caddy_config:/config
+        networks:
+            opsp_site_net:
+                ipv4_address: 10.10.10.4
+
+    django:
+        build: .
+        restart: unless-stopped
+        volumes:
+            - ".:/code"
+        command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn opsp.wsgi -b 10.10.10.3:8000"
+        networks:
+            opsp_site_net:
+                ipv4_address: 10.10.10.3
+        env_file: ".env"
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres:14
+        restart: unless-stopped
+        env_file: ".env"
+        environment:
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
+        volumes:
+            - ./postgresdata:/var/lib/postgresql/data
+        networks:
+            opsp_site_net:
+                ipv4_address: 10.10.10.1
+
+    redis:
+        image: redis:7.0
+        restart: unless-stopped
+        networks:
+            opsp_site_net:
+                ipv4_address: 10.10.10.2
+
+    celery:
+        build: .
+        restart: unless-stopped
+        command: celery -A opsp worker -l info
+        env_file: .env
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+
+    celery-beat:
+        build: .
+        restart: unless-stopped
+        command: celery -A opsp beat -l info
+        env_file: .env
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+
+
+networks:
+    opsp_site_net:
+        name: opsp_site_net

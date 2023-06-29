@@ -21,7 +21,7 @@ CSRF_COOKIE_SECURE = env.bool('DJANGO_CSRF_COOKIE_SECURE', default=True)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'opulus.space', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', 'opulus.space', '0.0.0.0', '10.10.10.3']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,7 +89,7 @@ else:
             'NAME': 'postgres',
             'USER': 'postgres',
             'PASSWORD': 'postgres',
-            'HOST': 'db',
+            'HOST': '10.10.10.1',
             'PORT': 5432
         }
     }
@@ -105,7 +105,7 @@ else:
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-            'LOCATION': env('REDIS_CACHE_URL', 'redis://redis:6379'),
+            'LOCATION': env('REDIS_CACHE_URL', 'redis://10.10.10.2:6379'),
         }
     }
 
@@ -149,8 +149,8 @@ if env.bool('TEST_REDIS', False):
     CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
     CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 else:
-    CELERY_BROKER_URL = 'redis://redis:6379'
-    CELERY_RESULT_BACKEND = 'redis://redis:6379'
+    CELERY_BROKER_URL = 'redis://10.10.10.2:6379'
+    CELERY_RESULT_BACKEND = 'redis://10.10.10.2:6379'
 
 CELERY_BEAT_SCHEDULE = {
     'update_map_every_2_days': {
