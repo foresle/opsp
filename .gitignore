@@ -1,8 +1,10 @@
 .idea
 venv
 db.sqlite3
-docker-compose-prod.yaml
 static
 .env
 celerybeat-schedule
 staticfiles
+postgresdata
+caddy_data
+caddy_config

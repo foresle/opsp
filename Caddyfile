@@ -1,0 +1,8 @@
+opulus.space {
+    handle_path /static/* {
+        root * /code/staticfiles
+        file_server
+    }
+
+    reverse_proxy 10.10.10.3:8000
+}

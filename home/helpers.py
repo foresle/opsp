@@ -1,7 +1,5 @@
 import datetime
-
 from django.core.cache import cache
-from bs4 import BeautifulSoup
 from django.conf import settings
 import requests
 
@@ -10,6 +8,9 @@ def get_jar_info() -> dict | None:
     """
     Get information about donations to monobank jar for pay to server.
     """
+
+    if settings.MONOBANK_PERSONAL_API_TOKEN is None or settings.MONOBANK_JAR_SEND_ID is None:
+        return None
 
     jar_info: dict | None = cache.get('monobank_jar_info', None)
     if jar_info is not None:
@@ -79,12 +80,19 @@ def get_donate_jar_box_info() -> dict:
     last_period_day = last_period_day - datetime.timedelta(days=1)
     donate_box_data['last_period_day'] = last_period_day
 
-    response = requests.get(
-        url='https://matrix.opulus.space/_synapse/admin/v2/users',
-        headers={
-            'Authorization': f'Bearer {settings.MATRIX_TOKEN}'
-        }
-    )
+    try:
+        response = requests.get(
+            url='https://matrix.opulus.space/_synapse/admin/v2/users',
+            headers={
+                'Authorization': f'Bearer {settings.MATRIX_TOKEN}'
+            }
+        )
+    except requests.exceptions.ConnectionError:
+        donate_box_data['users_count'] = 'Unknown'
+        donate_box_data['per_user_pay'] = 'Unknown'
+
+        return donate_box_data
+
     if response.status_code != 200:
         donate_box_data['users_count'] = 'Unknown'
         donate_box_data['per_user_pay'] = 'Unknown'
