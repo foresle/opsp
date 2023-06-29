@@ -80,12 +80,19 @@ def get_donate_jar_box_info() -> dict:
     last_period_day = last_period_day - datetime.timedelta(days=1)
     donate_box_data['last_period_day'] = last_period_day
 
-    response = requests.get(
-        url='https://matrix.opulus.space/_synapse/admin/v2/users',
-        headers={
-            'Authorization': f'Bearer {settings.MATRIX_TOKEN}'
-        }
-    )
+    try:
+        response = requests.get(
+            url='https://matrix.opulus.space/_synapse/admin/v2/users',
+            headers={
+                'Authorization': f'Bearer {settings.MATRIX_TOKEN}'
+            }
+        )
+    except requests.exceptions.ConnectionError:
+        donate_box_data['users_count'] = 'Unknown'
+        donate_box_data['per_user_pay'] = 'Unknown'
+
+        return donate_box_data
+
     if response.status_code != 200:
         donate_box_data['users_count'] = 'Unknown'
         donate_box_data['per_user_pay'] = 'Unknown'
