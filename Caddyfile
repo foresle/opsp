@@ -4,5 +4,5 @@ opulus.space {
         file_server
     }
 
-    reverse_proxy 10.10.10.3:8000
+    reverse_proxy 10.9.10.3:8000
 }

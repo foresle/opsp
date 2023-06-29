@@ -21,7 +21,7 @@ CSRF_COOKIE_SECURE = env.bool('DJANGO_CSRF_COOKIE_SECURE', default=True)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'opulus.space', '0.0.0.0', '10.10.10.3']
+ALLOWED_HOSTS = ['127.0.0.1', 'opulus.space', '0.0.0.0', '10.9.10.3']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
