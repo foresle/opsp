@@ -1,7 +1,5 @@
 import datetime
-
 from django.core.cache import cache
-from bs4 import BeautifulSoup
 from django.conf import settings
 import requests
 
@@ -10,6 +8,9 @@ def get_jar_info() -> dict | None:
     """
     Get information about donations to monobank jar for pay to server.
     """
+
+    if settings.MONOBANK_PERSONAL_API_TOKEN is None or settings.MONOBANK_JAR_SEND_ID is None:
+        return None
 
     jar_info: dict | None = cache.get('monobank_jar_info', None)
     if jar_info is not None:
