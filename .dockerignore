@@ -6,3 +6,10 @@ static
 .env
 celerybeat-schedule
 staticfiles
+postgresdata
+caddy_data
+caddy_config
+.git
+.gitignore
+.dockerignore
+example.env

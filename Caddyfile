@@ -1,0 +1,8 @@
+:8000 {
+    handle_path /static/* {
+        root * /code/staticfiles
+        file_server
+    }
+
+    reverse_proxy django:8000
+}

@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+    caddy:
+        image: caddy:2.6-alpine
+        restart: unless-stopped
+        ports:
+            - "8010:8000"
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile
+            - .:/code
+            - ./caddy_data:/data
+            - ./caddy_config:/config
+
+    django:
+        build: .
+        restart: unless-stopped
+        volumes:
+            - ".:/code"
+        command: sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn opsp.wsgi -b 0.0.0.0:8000"
+        env_file: .env
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres:14
+        restart: unless-stopped
+        env_file: .env
+        environment:
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
+        volumes:
+            - ./postgresdata:/var/lib/postgresql/data
+
+    redis:
+        image: redis:7.0
+        restart: unless-stopped
+
+    celery:
+        build: .
+        restart: unless-stopped
+        command: celery -A opsp worker -l info
+        env_file: .env
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+
+    celery-beat:
+        build: .
+        restart: unless-stopped
+        command: celery -A opsp beat -l info
+        env_file: .env
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
