@@ -76,7 +76,11 @@ def get_donate_jar_box_info() -> dict:
     first_period_day: datetime.date = today.replace(day=1)
     donate_box_data['first_period_day'] = first_period_day
 
-    last_period_day = first_period_day.replace(month=first_period_day.month+1)
+    if first_period_day.month != 12:
+        last_period_day = first_period_day.replace(month=first_period_day.month+1)
+    else:
+        last_period_day = first_period_day.replace(month=1)
+    
     last_period_day = last_period_day - datetime.timedelta(days=1)
     donate_box_data['last_period_day'] = last_period_day
 
